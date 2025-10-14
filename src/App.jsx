@@ -22,6 +22,7 @@ import AuthLayout from "./layouts/AuthLayout";
 import Home from "./pages/Home";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import ResetPassword from "./pages/auth/ResetPassword";
 
 export default function App() {
   const { pathname } = useLocation();
@@ -32,7 +33,8 @@ export default function App() {
       <Routes>
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<Navigate to="/login" replace />} />
+        <Route path="/reset" element ={<ResetPassword/>} />
       </Routes>
     </AuthLayout>
   ) : (
