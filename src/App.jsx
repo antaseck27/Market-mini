@@ -16,33 +16,64 @@
 
 
 
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import MainLayout from "./layouts/MainLayout";
-import AuthLayout from "./layouts/AuthLayout";
-import Home from "./pages/Home";
-import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
-import ResetPassword from "./pages/auth/ResetPassword";
+import { Routes, Route, Navigate } from "react-router-dom";
+
+// Layout principal (doit accepter {children})
+import MainLayout from "./layouts/MainLayout.jsx";
+
+// Pages publiques
+import Home from "./pages/Home.jsx";
+import NewAd from "./pages/NewAd.jsx";
+import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+
+// Admin
+// import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+
+// Pages d'auth
+import Login from "./pages/auth/Login.jsx";
+import Register from "./pages/auth/Register.jsx";
+import ResetPassword from "./pages/auth/ResetPassword.jsx";
 
 export default function App() {
-  const { pathname } = useLocation();
-  const isAuth = pathname === "/login" || pathname === "/register";
+  return (
+    <Routes>
+      {/* Pages avec Navbar + Footer via MainLayout */}
+      <Route
+        path="/"
+        element={
+          <MainLayout>
+            <Home />
+          </MainLayout>
+        }
+      />
+      <Route
+        path="/nouvelle-annonce"
+        element={
+          <MainLayout>
+            <NewAd />
+          </MainLayout>
+        }
+      />
 
-  return isAuth ? (
-    <AuthLayout>
-      <Routes>
-        <Route path="/login" element={<Login/>} />
-        <Route path="/register" element={<Register/>} />
-        <Route path="/login" element={<Navigate to="/login" replace />} />
-        <Route path="/reset" element ={<ResetPassword/>} />
-      </Routes>
-    </AuthLayout>
-  ) : (
-    <MainLayout>
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </MainLayout>
+      {/* admin */}
+      {/* <Route path="/admin" element={<AdminDashboard />} /> */}
+
+      <Route
+        path="/admin"
+        element={
+          <MainLayout>
+            <AdminDashboard />
+          </MainLayout>
+        }
+      />
+
+      {/* Pages d'auth SANS layout */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/reset" element={<ResetPassword />} />
+
+      {/* Fallback */}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 }

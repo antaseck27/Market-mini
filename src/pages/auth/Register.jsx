@@ -19,9 +19,9 @@
 // }
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { createUserWithEmailAndPassword } from "firebase/auth";
-// import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-// import { auth, db } from "../../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { auth, db } from "../../firebase";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -37,12 +37,12 @@ export default function Register() {
     setLoading(true);
 
     try {
-      // const cred = await createUserWithEmailAndPassword(auth, email, pwd);
-      // await setDoc(doc(db, "users", cred.user.uid), {
-      //   email,
-      //   role,
-      //   createdAt: serverTimestamp(),
-      // });
+      const cred = await createUserWithEmailAndPassword(auth, email, pwd);
+      await setDoc(doc(db, "users", cred.user.uid), {
+        email,
+        role,
+        createdAt: serverTimestamp(),
+      });
 
       await new Promise((r) => setTimeout(r, 600)); // simulation
       nav("/");
