@@ -203,7 +203,7 @@ export default function Login() {
                   value={pwd} onChange={(e)=>setPwd(e.target.value)} autoComplete="current-password" required />
                 <button type="button" onClick={()=>setShowPwd(v=>!v)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
-                  {showPwd ? "🙈" : "👁️"}
+                  {showPwd ? "°" : "-"}
                 </button>
               </div>
             </div>

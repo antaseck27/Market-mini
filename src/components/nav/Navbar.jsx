@@ -1,4 +1,3 @@
-/** @format */
 
 // // src/components/nav/Navbar.jsx
 // import { Link } from "react-router-dom";
