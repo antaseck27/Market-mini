@@ -26,6 +26,8 @@ import Openshop from "./pages/shops/OpenShop.jsx"
 import Home from "./pages/Home.jsx";
 import NewAd from "./pages/NewAd.jsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+import Account from "./pages/account/Account.jsx";
+
 
 // Admin
 // import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
@@ -63,6 +65,14 @@ export default function App() {
           </MainLayout>
         }
       />
+      <Route
+  path="/mon-compte"
+  element={
+    <MainLayout>
+      <Account />
+    </MainLayout>
+  }
+/>
 
       {/* admin */}
       {/* <Route path="/admin" element={<AdminDashboard />} /> */}
