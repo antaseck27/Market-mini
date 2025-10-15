@@ -22,8 +22,8 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 // 🔐 Décommente quand Firebase sera installé et configuré
-// import { signInWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -41,7 +41,7 @@ export default function Login() {
 
     try {
       // 🔐 Version Firebase (quand prêt) :
-      // await signInWithEmailAndPassword(auth, email, pwd);
+      await signInWithEmailAndPassword(auth, email, pwd);
 
       // 👉 Version sans backend (simulation)
       await new Promise((r) => setTimeout(r, 600));

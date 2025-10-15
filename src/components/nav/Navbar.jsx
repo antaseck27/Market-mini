@@ -87,6 +87,13 @@ export default function Navbar() {
             >
               S’inscrire
             </Link>
+            {/* <button
+            onClick={() => signOut(auth)}
+            className="text-sm px-4 py-2 rounded-xl hover:bg-orange-50"
+          >
+            Déconnexion
+          </button> */}
+
           </div>
         </div>
       </header>
