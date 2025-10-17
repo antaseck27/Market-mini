@@ -212,7 +212,7 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [showPwd, setShowPwd] = useState(false);
-  const [role, setRole] = useState("buyer"); // buyer | seller
+  const [role, setRole] = useState("acheteur"); // buyer | seller
   const [terms, setTerms] = useState(false);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
@@ -265,8 +265,8 @@ export default function Register() {
           <div className="mb-6">
             <div className="text-sm font-medium mb-2">Je m’inscris en tant que :</div>
             <div className="grid grid-cols-2 gap-2">
-              <button type="button" onClick={()=>setRole("buyer")}
-                className={`rounded-xl border px-4 py-2.5 text-sm font-medium transition ${role==="buyer"?"bg-orange-500 text-white border-orange-500":"border-gray-200 hover:border-orange-300"}`}>
+              <button type="button" onClick={()=>setRole("acheteur")}
+                className={`rounded-xl border px-4 py-2.5 text-sm font-medium transition ${role==="acheteur"?"bg-orange-500 text-white border-orange-500":"border-gray-200 hover:border-orange-300"}`}>
                 Acheteur
               </button>
               <button type="button" onClick={()=>setRole("seller")}
