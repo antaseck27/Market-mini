@@ -22,6 +22,8 @@ import AuthLayout from "./layouts/AuthLayout";
 import Home from "./pages/Home";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import Mobile from "./pages/categories/Mobile";
+
 
 export default function App() {
   const { pathname } = useLocation();
@@ -39,6 +41,8 @@ export default function App() {
     <MainLayout>
       <Routes>
         <Route path="/" element={<Home/>} />
+        
+        <Route path="/mobile" element={<Mobile />} /> 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </MainLayout>
