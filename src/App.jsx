@@ -20,7 +20,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 // Layout principal (doit accepter {children})
 import MainLayout from "./layouts/MainLayout.jsx";
-import Openshop from "./pages/shops/OpenShop.jsx"
+import OpenShop from "./pages/shops/OpenShop.jsx"
 
 // Pages publiques
 import Home from "./pages/Home.jsx";
@@ -49,6 +49,17 @@ export default function App() {
           </MainLayout>
         }
       />
+    <Route
+        path="shops/open"
+        element={
+          <MainLayout>
+            <OpenShop />
+          </MainLayout>
+        }
+      />
+
+
+
       <Route
         path="/nouvelle-annonce"
         element={
@@ -57,14 +68,14 @@ export default function App() {
           </MainLayout>
         }
       />
-      <Route
+      {/* <Route
         path="/shops/open"
         element={
           <MainLayout>
-            <Openshop />
+            <OpenShop />
           </MainLayout>
         }
-      />
+      /> */}
       <Route
   path="/mon-compte"
   element={
