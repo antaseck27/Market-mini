@@ -54,9 +54,7 @@ import ResetPassword from "./pages/auth/ResetPassword.jsx";
 // import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 // import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
-import Home from "./pages/Home";
-import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
+
 import Mobile from "./pages/categories/Mobile";
 
 
