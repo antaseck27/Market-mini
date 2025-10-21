@@ -28,6 +28,17 @@ import NewAd from "./pages/NewAd.jsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
 import Account from "./pages/account/Account.jsx";
 
+// lima innnnnndi
+import Daily from "./pages/promotions/Daily.jsx";
+import Flashsal from "./pages/promotions/Flashsal.jsx";
+import Liquidation from "./pages/promotions/Liquidation.jsx";
+
+
+
+
+
+
+
 
 // Admin
 // import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
@@ -84,6 +95,43 @@ export default function App() {
     </MainLayout>
   }
 />
+{/* fimou commencer */}
+
+<Route
+  path="/promotions/daily"
+  element={
+    <MainLayout>
+      <Daily />
+    </MainLayout>
+  }
+/>
+
+<Route
+  path="/promotions/flash"
+  element={
+    <MainLayout>
+      <Flashsal />
+    </MainLayout>
+  }
+/>
+
+<Route
+  path="/promotions/clearance"
+  element={
+    <MainLayout>
+      <Liquidation />
+    </MainLayout>
+  }
+/>
+
+
+
+
+
+
+
+
+{/* fimou yam */}
 
       {/* admin */}
       {/* <Route path="/admin" element={<AdminDashboard />} /> */}
