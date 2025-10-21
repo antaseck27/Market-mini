@@ -28,6 +28,7 @@ import NewAd from "./pages/NewAd.jsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
 import Account from "./pages/account/Account.jsx";
 
+
 // lima innnnnndi
 import Daily from "./pages/promotions/Daily.jsx";
 import Flashsal from "./pages/promotions/Flashsal.jsx";
@@ -36,8 +37,9 @@ import Liquidation from "./pages/promotions/Liquidation.jsx";
 
 
 
-
-
+import Contact from './pages/help/Contact.jsx';
+import Faq from './pages/help/Faq.jsx';
+import Help from './pages/help/Help.jsx';
 
 
 // Admin
@@ -133,6 +135,33 @@ export default function App() {
 
 {/* fimou yam */}
 
+
+{/* Pages d'aide */}
+      <Route
+        path="/help"
+        element={
+          <MainLayout>
+            <Help />
+          </MainLayout>
+        }
+      />
+      <Route
+        path="/help/faq"
+        element={
+          <MainLayout>
+            <Faq />
+          </MainLayout>
+        }
+      />
+      <Route
+        path="/help/contact"
+        element={
+          <MainLayout>
+            <Contact />
+          </MainLayout>
+        }
+      />
+
       {/* admin */}
       {/* <Route path="/admin" element={<AdminDashboard />} /> */}
 
@@ -149,6 +178,8 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/reset" element={<ResetPassword />} />
+
+      
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />
