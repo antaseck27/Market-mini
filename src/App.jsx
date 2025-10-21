@@ -1,18 +1,4 @@
 
-// import './App.css'
-
-// function App() {
-
-//   return (
-//     <div>
-
-//       <button className='bg-red-600'>Test</button>
-      
-//     </div>
-//   )
-// }
-
-// export default App
 
 
 
