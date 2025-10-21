@@ -41,7 +41,7 @@ export default function Footer(){
     </a>
   </div>
 </div>
-
+            <span>Bakeli</span>
           </div>
         </div>
       </footer>
