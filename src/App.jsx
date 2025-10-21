@@ -16,6 +16,7 @@
 
 
 
+
 import { Routes, Route, Navigate } from "react-router-dom";
 
 // Layout principal (doit accepter {children})
@@ -49,6 +50,15 @@ import Help from './pages/help/Help.jsx';
 import Login from "./pages/auth/Login.jsx";
 import Register from "./pages/auth/Register.jsx";
 import ResetPassword from "./pages/auth/ResetPassword.jsx";
+
+// import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+// import MainLayout from "./layouts/MainLayout";
+import AuthLayout from "./layouts/AuthLayout";
+import Home from "./pages/Home";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import Mobile from "./pages/categories/Mobile";
+
 
 export default function App() {
   return (
@@ -93,7 +103,14 @@ export default function App() {
   path="/mon-compte"
   element={
     <MainLayout>
+
       <Account />
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        
+        <Route path="/mobile" element={<Mobile />} /> 
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </MainLayout>
   }
 />
