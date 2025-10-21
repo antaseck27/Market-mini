@@ -17,7 +17,7 @@ export default function Mobile() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-50">
-      <div className="bg-orange-500 rounded-lg w-full max-w-6xl ">
+      <div className="bg-orange-500 rounded-l g w-full max-w-6xl ">
         {/* Titre et lien */}
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-white font-bold text-lg">
