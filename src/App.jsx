@@ -85,15 +85,17 @@ export default function App() {
   }
 />
 
+
+
       {/* admin */}
       {/* <Route path="/admin" element={<AdminDashboard />} /> */}
 
       <Route
         path="/admin"
         element={
-          <MainLayout>
+          // <MainLayout>
             <AdminDashboard />
-          </MainLayout>
+          // </MainLayout>
         }
       />
 
