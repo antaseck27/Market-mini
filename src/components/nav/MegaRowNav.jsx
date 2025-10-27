@@ -124,8 +124,8 @@ const MENUS = [
     label: "Catégories",
     items: [
       { label: "Mobile", href: "/mobile" },
-      { label: "Electronics", href: "/c/electronics" },
-      { label: "Cosmetics", href: "/c/cosmetics" },
+      { label: "Electronics", href: "/electronics" },
+      { label: "Cosmetics", href: "/cosmetics" },
       { label: "Furniture", href: "/c/furniture" },
       { label: "Watches", href: "/c/watches" },
       { label: "Decor", href: "/c/decor" },

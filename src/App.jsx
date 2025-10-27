@@ -9,6 +9,8 @@ import Home from "./pages/Home";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Mobile from "./pages/categories/Mobile";
+import Electronics from "./pages/categories/Electronics";
+import Cosmetics from "./pages/categories/Cosmetics";
 
 
 export default function App() {
@@ -29,6 +31,8 @@ export default function App() {
         <Route path="/" element={<Home/>} />
         
         <Route path="/mobile" element={<Mobile />} /> 
+        <Route path="/electronics" element={<Electronics />} /> 
+         <Route path="/cosmetics" element={<Cosmetics />} /> 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </MainLayout>
