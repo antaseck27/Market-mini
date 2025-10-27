@@ -36,6 +36,7 @@ import Account from "./pages/account/Account.jsx";
 import Login from "./pages/auth/Login.jsx";
 import Register from "./pages/auth/Register.jsx";
 import ResetPassword from "./pages/auth/ResetPassword.jsx";
+import ResetConfirm from "./pages/auth/ResetConfirm.jsx"; // <-- AJOUT
 
 export default function App() {
   return (
@@ -103,6 +104,7 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/reset" element={<ResetPassword />} />
+      <Route path="/reset/confirm" element={<ResetConfirm/>} /> {/* <-- NOUVELLE PAGE */}
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />

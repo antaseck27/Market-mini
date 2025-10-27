@@ -138,3 +138,175 @@ export default function Register() {
     </div>
   );
 }
+
+
+
+
+
+// //// src/pages/auth/Register.jsx
+// import { useState } from "react";
+// import { Link, useNavigate } from "react-router-dom";
+// import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+// import { auth, db } from "../../firebase";
+// import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+
+// export default function Register() {
+//   const [name, setName] = useState("");
+//   const [role, setRole] = useState("acheteur"); // "acheteur" | "vendeur"
+//   const [email, setEmail] = useState("");
+//   const [pwd, setPwd] = useState("");
+//   const [loading, setLoading] = useState(false);
+//   const [err, setErr] = useState("");
+//   const navigate = useNavigate();
+
+//   // 👑 admin unique (pas d’option visuelle)
+//   const ADMIN_EMAIL = "antalissa10@gmail.com";
+
+//   const mapErr = (code) => {
+//     switch (code) {
+//       case "auth/email-already-in-use": return "Cet e-mail est déjà utilisé.";
+//       case "auth/invalid-email": return "Adresse e-mail invalide.";
+//       case "auth/weak-password": return "Mot de passe trop faible (min. 6 caractères).";
+//       default: return "Inscription impossible. Réessayez.";
+//     }
+//   };
+
+//   const onSubmit = async (e) => {
+//     e.preventDefault();
+//     setErr("");
+//     setLoading(true);
+
+//     try {
+//       // 1) Création auth
+//       const cred = await createUserWithEmailAndPassword(auth, email.trim(), pwd);
+//       const user = cred.user;
+
+//       // 2) Définir displayName côté Auth
+//       if (name.trim()) {
+//         await updateProfile(user, { displayName: name.trim() });
+//       }
+
+//       // 3) Déterminer rôle final (admin si email match)
+//       const emailLower = (user.email || "").toLowerCase();
+//       const finalRole = emailLower === ADMIN_EMAIL.toLowerCase() ? "admin" : role;
+
+//       // 4) Écrire le document Firestore users/{uid}
+//       await setDoc(doc(db, "users", user.uid), {
+//         displayName: name.trim() || "Utilisateur",
+//         email: emailLower,
+//         role: finalRole, // "admin" | "vendeur" | "acheteur"
+//         createdAt: serverTimestamp(),
+//       });
+
+//       // 5) Redirection
+//       if (finalRole === "admin") {
+//         navigate("/admin", { replace: true });
+//       } else {
+//         navigate("/shops/open", { replace: true });
+//       }
+//     } catch (e) {
+//       setErr(mapErr(e.code));
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   return (
+//     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+//       <div className="w-full max-w-2xl">
+//         <div className="bg-white rounded-2xl shadow-[0_10px_35px_rgba(255,122,0,0.10)] border border-orange-200/70 p-8">
+//           <div className="text-center mb-6">
+//             <div className="mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500 text-white font-extrabold">MM</div>
+//             <h1 className="text-2xl sm:text-3xl font-bold">Créer un compte</h1>
+//           </div>
+
+//           <form onSubmit={onSubmit} className="grid gap-4">
+//             <div>
+//               <label className="block text-sm font-medium mb-1">Nom complet</label>
+//               <input
+//                 type="text"
+//                 value={name}
+//                 onChange={(e)=>setName(e.target.value)}
+//                 className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:ring-2 focus:ring-orange-500"
+//                 placeholder="Ex : Anta Ndiaye"
+//                 required
+//               />
+//             </div>
+
+//             {/* Choix de rôle (admin pas visible ici) */}
+//             <div>
+//               <label className="block text-sm font-medium mb-1">Je suis</label>
+//               <div className="flex items-center gap-4">
+//                 <label className="inline-flex items-center gap-2">
+//                   <input
+//                     type="radio"
+//                     name="role"
+//                     value="acheteur"
+//                     checked={role === "acheteur"}
+//                     onChange={()=>setRole("acheteur")}
+//                   />
+//                   <span>Acheteur</span>
+//                 </label>
+//                 <label className="inline-flex items-center gap-2">
+//                   <input
+//                     type="radio"
+//                     name="role"
+//                     value="vendeur"
+//                     checked={role === "vendeur"}
+//                     onChange={()=>setRole("vendeur")}
+//                   />
+//                   <span>Vendeur</span>
+//                 </label>
+//               </div>
+//             </div>
+
+//             <div>
+//               <label className="block text-sm font-medium mb-1">Adresse e-mail</label>
+//               <input
+//                 type="email"
+//                 value={email}
+//                 onChange={(e)=>setEmail(e.target.value)}
+//                 className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:ring-2 focus:ring-orange-500"
+//                 autoComplete="email"
+//                 required
+//               />
+//             </div>
+
+//             <div>
+//               <label className="block text-sm font-medium mb-1">Mot de passe</label>
+//               <input
+//                 type="password"
+//                 value={pwd}
+//                 onChange={(e)=>setPwd(e.target.value)}
+//                 className="w-full rounded-xl border border-gray-200 px-4 py-3 focus:ring-2 focus:ring-orange-500"
+//                 autoComplete="new-password"
+//                 required
+//               />
+//             </div>
+
+//             {err && (
+//               <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+//                 {err}
+//               </div>
+//             )}
+
+//             <button
+//               type="submit"
+//               disabled={loading}
+//               className="mt-2 inline-flex items-center justify-center rounded-xl bg-orange-500 text-white px-6 py-3 font-medium hover:opacity-90 disabled:opacity-60"
+//             >
+//               {loading ? "Création…" : "Créer le compte"}
+//             </button>
+//           </form>
+
+//           <div className="text-sm text-gray-600 mt-6 text-center">
+//             Déjà un compte ?{" "}
+//             <Link to="/login" className="text-orange-600 font-medium hover:underline">
+//               Se connecter
+//             </Link>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
