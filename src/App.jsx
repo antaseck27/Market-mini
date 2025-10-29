@@ -1,18 +1,4 @@
 
-// import './App.css'
-
-// function App() {
-
-//   return (
-//     <div>
-
-//       <button className='bg-red-600'>Test</button>
-      
-//     </div>
-//   )
-// }
-
-// export default App
 
 
 
@@ -34,12 +20,6 @@ import Daily from "./pages/promotions/Daily.jsx";
 import Flashsal from "./pages/promotions/Flashsal.jsx";
 import Liquidation from "./pages/promotions/Liquidation.jsx";
 
-
-
-
-
-
-
 import Contact from './pages/help/Contact.jsx';
 import Faq from './pages/help/Faq.jsx';
 import Help from './pages/help/Help.jsx';
@@ -54,6 +34,13 @@ import Login from "./pages/auth/Login.jsx";
 import Register from "./pages/auth/Register.jsx";
 import ResetPassword from "./pages/auth/ResetPassword.jsx";
 import ResetConfirm from "./pages/auth/ResetConfirm.jsx"; // <-- AJOUT
+// import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import AuthLayout from "./layouts/AuthLayout";
+
+import Mobile from "./pages/categories/Mobile";
+import Electronics from "./pages/categories/Electronics";
+import Cosmetics from "./pages/categories/Cosmetics";
+
 
 export default function App() {
   return (
@@ -99,6 +86,14 @@ export default function App() {
   element={
     <MainLayout>
       <Account />
+      <Routes>
+        {/* <Route path="/" element={<Home/>} /> */}
+        
+        <Route path="/mobile" element={<Mobile />} /> 
+        <Route path="/electronics" element={<Electronics />} /> 
+         <Route path="/cosmetics" element={<Cosmetics />} /> 
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </MainLayout>
   }
 />
@@ -131,17 +126,19 @@ export default function App() {
   }
 />
 
-
-
-
+<Route
+  path="/mobile"
+  element={
+    <MainLayout>
+      <Mobile />
+    </MainLayout>
+  }
+/>
 
 
 
 
 {/* fimou yam */}
-
-
-
 
 {/* Pages d'aide */}
       <Route
