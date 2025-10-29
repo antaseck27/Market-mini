@@ -42,6 +42,7 @@ export default function Footer(){
   </div>
 </div>
 
+            <span>Bakeli</span>
           </div>
         </div>
       </footer>
