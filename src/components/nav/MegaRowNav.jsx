@@ -147,6 +147,7 @@ const MENUS = [
       { label: "Offres du jour", href: "/promotions/daily" },
       { label: "Vente flash", href: "/promotions/flash" },
       { label: "Liquidation", href: "/promotions/clearance" },
+      
     ],
   },
   {
