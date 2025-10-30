@@ -126,7 +126,7 @@ const MENUS = [
       { label: "Mobile", href: "/mobile" },
       { label: "Electronics", href: "/electronics" },
       { label: "Cosmetics", href: "/cosmetics" },
-      { label: "Furniture", href: "/c/furniture" },
+      { label: "Furniture", href: "/furniture" },
       { label: "Watches", href: "/c/watches" },
       { label: "Decor", href: "/c/decor" },
       { label: "Accessories", href: "/c/accessories" },

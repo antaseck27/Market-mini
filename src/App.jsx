@@ -11,6 +11,7 @@ import Register from "./pages/auth/Register";
 import Mobile from "./pages/categories/Mobile";
 import Electronics from "./pages/categories/Electronics";
 import Cosmetics from "./pages/categories/Cosmetics";
+import Furniture from "./pages/categories/Furniture";
 
 
 export default function App() {
@@ -33,6 +34,8 @@ export default function App() {
         <Route path="/mobile" element={<Mobile />} /> 
         <Route path="/electronics" element={<Electronics />} /> 
          <Route path="/cosmetics" element={<Cosmetics />} /> 
+         <Route path="/furniture" element={<Furniture />} /> 
+
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </MainLayout>
